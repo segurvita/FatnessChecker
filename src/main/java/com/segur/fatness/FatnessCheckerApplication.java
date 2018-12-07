@@ -1,12 +1,25 @@
 package com.segur.fatness;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
+/**
+ * 肥満度を確認するツール
+ */
 public class FatnessCheckerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(FatnessCheckerApplication.class, args);
+	/**
+	 * メイン文
+	 * 
+	 * @param args
+	 */
+	public static void main(
+			String[] args) {
+
+		// 肥満度を答えてくれる人を呼ぶ
+		FatnessChecker fatnessChecker = new FatnessChecker();
+
+		// 肥満度を答えてもらう
+		String result = fatnessChecker.check(170.0, 70.0);
+
+		// 肥満度を表示する
+		System.out.println(result);
 	}
 }
