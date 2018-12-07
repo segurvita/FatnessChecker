@@ -1,7 +1,7 @@
 package com.segur.fatness;
 
 /**
- * BMIを答えてくれる人
+ * BMIマスター
  */
 public class BmiCalculator {
 

@@ -1,7 +1,7 @@
 package com.segur.fatness;
 
 /**
- * 肥満度を答えてくれる人
+ * 肥満度検査会社（外部会社）
  */
 public class FatnessChecker {
 
@@ -14,13 +14,13 @@ public class FatnessChecker {
 			double height,
 			double weight) {
 
-		// BMIを答えてくれる人を呼ぶ
+		// 社内のBMIマスターを１人確保する。
 		BmiCalculator bmiCalculator = new BmiCalculator();
 
-		// BMIを答えてもらう
+		// BMIマスターにBMIを計算してもらう。
 		double bmi = bmiCalculator.calc(height, weight);
 
-		// 肥満度を判定する。
+		// BMIから肥満度を判定する。
 		if (bmi < 18.5) {
 			return "低体重（やせ）";
 		} else if (bmi < 25.0) {
