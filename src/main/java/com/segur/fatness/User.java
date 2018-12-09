@@ -1,5 +1,8 @@
 package com.segur.fatness;
 
+/**
+ * 肥満度を知りたい人
+ */
 public class User {
 
 	/**
