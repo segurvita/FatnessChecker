@@ -1,7 +1,7 @@
 package com.segur.fatness;
 
 /**
- * 肥満度検査会社（DI導入前）
+ * 肥満度判定会社（BMIマスターなし）
  */
 public class FatnessChecker {
 

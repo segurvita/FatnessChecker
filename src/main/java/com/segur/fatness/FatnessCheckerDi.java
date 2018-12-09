@@ -1,7 +1,7 @@
 package com.segur.fatness;
 
 /**
- * 肥満度検査会社（DI導入後）
+ * 肥満度判定会社（BMIマスターあり）
  */
 public class FatnessCheckerDi {
 
@@ -13,10 +13,10 @@ public class FatnessCheckerDi {
 	/**
 	 * コンストラクタ
 	 * 
-	 * @param bmiCalculator 利用者から指名されたBMIマスター
+	 * @param bmiCalculator ユーザーから指名されたBMIマスター
 	 */
 	public FatnessCheckerDi(BmiMaster bmiMaster) {
-		// 利用者から指名されたBMIマスターを迎える。
+		//ユーザーから指名されたBMIマスターを迎える。
 		this.bmiMaster = bmiMaster;
 	}
 
@@ -27,7 +27,7 @@ public class FatnessCheckerDi {
 	 */
 	public String check(double height, double weight) {
 
-		// 利用者から指名されたBMIマスターにBMI計算を依頼する。
+		// ユーザーから指名されたBMIマスターにBMI計算を依頼する。
 		double bmi = this.bmiMaster.calc(height, weight);
 
 		// BMI計算結果から肥満度を判定する。
