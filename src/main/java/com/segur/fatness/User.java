@@ -1,6 +1,7 @@
 package com.segur.fatness;
 
 public class User {
+
 	/**
 	 * BMIマスターなしで肥満度判定会社に判定を依頼する。
 	 */
