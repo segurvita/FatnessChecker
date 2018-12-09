@@ -1,23 +1,23 @@
 package com.segur.fatness;
 
 /**
- * 肥満度検査会社（グループ会社）
+ * 肥満度検査会社（DI導入後）
  */
 public class FatnessCheckerDi {
-	
+
 	/**
-	 * BMIマスター 
+	 * BMIマスター
 	 */
-	final private BmiCalculator bmiCalculator;
-	
+	final private BmiMaster bmiMaster;
+
 	/**
 	 * コンストラクタ
 	 * 
-	 * @param bmiCalculator 出向してくるBMIマスター
+	 * @param bmiCalculator 利用者から指名されたBMIマスター
 	 */
-	public FatnessCheckerDi(BmiCalculator bmiCalculator) {
-		// 出向してきたBMIマスターを迎える。
-		this.bmiCalculator = bmiCalculator;
+	public FatnessCheckerDi(BmiMaster bmiMaster) {
+		// 利用者から指名されたBMIマスターを迎える。
+		this.bmiMaster = bmiMaster;
 	}
 
 	/**
@@ -25,14 +25,12 @@ public class FatnessCheckerDi {
 	 * @param weight 体重 [kg]
 	 * @return 肥満度
 	 */
-	public String check(
-			double height,
-			double weight) {
-		
-		// 出向してきたBMIマスターにBMIを計算してもらう。
-		double bmi = this.bmiCalculator.calc(height, weight);
+	public String check(double height, double weight) {
 
-		// BMIから肥満度を判定する。
+		// 利用者から指名されたBMIマスターにBMI計算を依頼する。
+		double bmi = this.bmiMaster.calc(height, weight);
+
+		// BMI計算結果から肥満度を判定する。
 		if (bmi < 18.5) {
 			return "低体重（やせ）";
 		} else if (bmi < 25.0) {
