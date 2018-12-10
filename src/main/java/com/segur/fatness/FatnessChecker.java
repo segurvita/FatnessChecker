@@ -22,17 +22,17 @@ public class FatnessChecker {
 
 		// BMI計算結果から肥満度を判定する。
 		if (bmi < 18.5) {
-			return "低体重（やせ）";
+			return "低体重";
 		} else if (bmi < 25.0) {
 			return "普通体重";
 		} else if (bmi < 30.0) {
-			return "肥満（１度）";
+			return "１度肥満";
 		} else if (bmi < 35.0) {
-			return "肥満（２度）";
+			return "２度肥満";
 		} else if (bmi < 40.0) {
-			return "肥満（３度）";
+			return "３度肥満";
 		} else {
-			return "肥満（４度）";
+			return "４度肥満";
 		}
 	}
 }
