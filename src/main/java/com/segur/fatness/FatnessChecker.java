@@ -1,11 +1,13 @@
 package com.segur.fatness;
 
 /**
- * 肥満度判定会社（BMIマスターなし）
+ * 肥満度判定会社（BMIロボット利用）
  */
 public class FatnessChecker {
 
 	/**
+	 * BMIを判定する
+	 * 
 	 * @param height 身長 [cm]
 	 * @param weight 体重 [kg]
 	 * @return 肥満度
