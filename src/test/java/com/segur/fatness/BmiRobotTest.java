@@ -10,16 +10,27 @@ import org.junit.jupiter.api.Test;
 class BmiRobotTest {
 
 	/**
+	 * BMIマスター
+	 */
+	final private BmiRobot bmiRobot;
+
+	/**
+	 * コンストラクタ
+	 */
+	public BmiRobotTest() {
+
+		// BMIロボットを１人確保する
+		this.bmiRobot = new BmiRobot();
+	}
+
+	/**
 	 * BMI計算のテスト
 	 */
 	@Test
 	void testCalc() {
-		
-		// BMIロボットを１人確保する
-		BmiRobot bmiRobot = new BmiRobot();
 
 		// BMI計算する。
-		double bmi = bmiRobot.calc(170.0, 68.0);
+		double bmi = this.bmiRobot.calc(170.0, 68.0);
 
 		// 計算結果を判定する。
 		assertThat(bmi).isEqualTo(40.0);
