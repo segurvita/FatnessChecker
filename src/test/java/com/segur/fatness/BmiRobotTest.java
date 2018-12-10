@@ -4,10 +4,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * BMIロボット（バグあり）のテスト
+ */
 class BmiRobotTest {
 
+	/**
+	 * BMI計算のテスト
+	 */
 	@Test
 	void testCalc() {
+		
 		// BMIロボットを１人確保する
 		BmiRobot bmiRobot = new BmiRobot();
 

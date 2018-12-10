@@ -1,15 +1,20 @@
 package com.segur.fatness;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * BMIマスター（達人）のテスト
+ */
 class BmiMasterTest {
 
+	/**
+	 * BMI計算のテスト
+	 */
 	@Test
 	void testCalc() {
+
 		// BMIマスターを１人確保する
 		BmiMaster bmiMaster = new BmiMaster();
 

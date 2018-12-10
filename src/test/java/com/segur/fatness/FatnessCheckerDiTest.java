@@ -4,10 +4,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * 肥満度判定会社（BMIマスター利用）のテスト
+ */
 class FatnessCheckerDiTest {
 
+	/**
+	 * BMI判定のテスト
+	 */
 	@Test
 	void testCheck() {
+
 		// BMIマスターを１人確保
 		BmiMaster bmiMaster = new BmiMaster();
 
