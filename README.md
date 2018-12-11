@@ -1,85 +1,84 @@
 # FatnessChecker
-This project is sample code of dependency injection for Java.
+<div style="text-align:right">Language: <i>English</i> | <a href="README_JA.md">日本語</a></div>
 
-この記事は [Java Advent Calendar 2018](https://qiita.com/advent-calendar/2018/java) の12日目の記事のための、サンプルプロジェクトです。
+This project is sample of dependency injection for Java.
 
-
-
-# 肥満度判定
-
-肥満度判定という題材で解説します。（少々茶番にお付き合いください）
-
-:man: 俺って太ってるのかな？そうだ！肥満度判定会社に検査を依頼してみよう！
-
-数時間後
-
-:person_frowning: ようこそ、肥満度判定会社へ。さっそくですが、身長と体重を伺ってもよろしいでしょうか？
-
-:man: えっと、身長は170cm、体重は70kgです。
-
-:person_frowning: かしこまりました。少々お待ちくさい。弊社の最新型のロボットでBMIを計算いたします。
-
-:robot: 計算シマス・・・70kg÷1.70mデ、BMIハ **41.18** デス！
-
-:person_frowning: BMIが41.18ですと・・・40以上なので**4度肥満**ですね。
-
-:man: ええ！そんな！
-
-数時間後
-
-:man: 俺が肥満なんて絶対におかしい。あのロボット、バグってない？
-
-:older_man: そこの人、肥満度判定でお困りですかな？良ければ話を聞かせてくだされ。
-
-:man: ええ、実はかくかくしかじかで・・・
-
-数日後
-
-:information_desk_person: ようこそ、肥満度判定会社へ。さっそくですが、身長と体重を伺ってもよろしいでしょうか？
-
-:man: 身長は170cm、体重は70kgです。
-
-:information_desk_person: 少々お待ちくさい・・・最新ロボットでBMIを計算いたします。
-
-:man: ちょっと待って！BMIの計算はこの人にやってもらいたいんだ。
-
-:older_man: ほっほっほ、この場合、70kg÷1.70m÷1.70mで、BMIは**24.22**ですな。
-
-:information_desk_person: かしこまりました。BMIが24.22ですと・・・18.5以上25未満なので**普通体重**ですね。
-
-:man: やった！（肥満までギリギリじゃねーか！）
+If you want to see details, please see the 12th article of [Java Advent Calendar 2018](https://qiita.com/advent-calendar/2018/java). (Japanese only)
 
 
 
-# 各自の役割
+# Short Story: Obese Judgement
 
-このストーリーに登場した人物は以下の通りです。
+:man: I want to check my health. Let's ask the Fatness-Assessment-Company for inspection!
 
-- :man: は自分の肥満度が知りたい人です。利用者ということで、`User`と呼ぶことにします。
-- :person_frowning: は :robot: を使って肥満度を判定する人です。  `FatnessChecker` と呼ぶことにします。
-- :robot: はBMIを計算するロボットです。まだ試作品でバグがあります。 `BmiRobot` と呼ぶことにします。
-- :older_man: はBMIを計算する達人です。絶対に計算を間違えません。 `BmiMaster` と呼ぶことにします。
-- :information_desk_person: は :older_man: を使って肥満度を判定する人です。:person_frowning: と同一人物ですが、説明のため区別し、 `FatnessCheckerDi` と呼ぶことにします。
+After several hours.
+
+:person_frowning: Welcome to the Fatness-Assessment-Company. May I ask your height and weight?
+
+:man: Well, my height is 170 cm, weight is 70 kg.
+
+:person_frowning: Certainly. Please wait a moment. We will calculate your BMI with our latest type robot.
+
+:robot: Now Calculating...  70 kg divided by 1.70 m equals 41.18, so the BMI is ** 41.18 **!
+
+:person_frowning: OK, The BMI is over 40, so you are  **Obese (Level 4)** in Japan.
+
+:man: No way!
+
+After several hours
+
+:man: I'm definitely not obese. That robot must have been broken.
+
+:older_man: Are you having trouble of Fatness-Assessment-Company? Let me hear your story if you do not mind.
+
+:man: Yeah, Bla bla bla...
+
+A few days later
+
+:information_desk_person: Welcome to the Fatness-Assessment-Company. May I ask your height and weight?
+
+:man: Height is 170 cm, weight is 70 kg.
+
+:information_desk_person: Just a moment please. I will calculate the BMI with the robot.
+
+:man: Wait! I want this person to calculate the BMI.
+
+:older_man: Let me see, 70 kg divided by the square of 1.70 m equals 24.22, so his BMI is ** 24.22 **.
+
+:information_desk_person: Certainly. The BMI is over 18.5 and less than 25, so you are **Normal Weight ** in Japan.
+
+:man: I did it!
 
 
 
-# 今回の事例の問題
+# Role of the People
 
-:robot:` BmiRobot` はBMIの計算を間違えてしまいました。どうやらバグがあるようです。
+The people who appeared in this story are as follows.
 
-この間違った計算結果をもとに、:person_frowning: `FatnessChecker` が肥満度判定を行ったため、判定結果も間違ったものになってしましました。
+- :man: is a person who want to know his degree of obesity. We will call him `User` in this article.
+- :person_frowning: is a person who uses :robot: to determine the degree of obesity. We will call her `FatnessChecker` in this article.
+- :robot: is a robot that calculates BMI. There is still a bug. We will call it `BmiRobot` in this article.
+- :older_man: is an expert in calculating BMI. He definitely do not mistake the calculation. We will call him `BmiMaster` in this article.
+- :information_desk_person: is a person who judges the degree of obesity by using :older_man:. :person_frowning: is same person, but to distinguish it for explanation, we will call her `FatnessCheckerDi` in this article.
 
-つまり、:person_frowning: `FatnessChecker` が :robot: `BmiRobot` という信頼性の低いロボットに依存していたことが問題と言えます。
+
+
+# Problems of this case
+
+:robot: `BmiRobot` has mistakenly calculated BMI. Apparently there seems to be a bug.
+
+:person_frowning: `FatnessChecker` performed obesity degree judgment based on this incorrect calculation result, so the judgment result was also wrong.
+
+In other words, it is a problem that :person_frowning: `FatnessChecker` depended on :robot:` BmiRobot` with low reliability.
 
 
 
-# DIという解決策
+# DI
 
-:man: `User`は、自分が信頼できる人物 :older_man:`BmiMaster` にBMIの計算をやってもらう条件で、:information_desk_person: `FatnessCheckerDi` に肥満度判定を依頼しました。
+:man: `User` asked 💁 `FatnessCheckerDi` to let :older_man:` BmiMaster` calculate BMI, because he trust him.
 
-これによって、:information_desk_person: `FatnessCheckerDi` の判定結果は、:older_man: `BmiMaster` という信頼性の高い人物に依存するようになります。
+This will enable that  the judgment result of:information_desk_person: `FatnessCheckerDi` will depend on a reliable :older_man:` BmiMaster`.
 
-これが**DI**（Dependency Injection、依存性の注入）です！つまり、
+This is ** DI ** (dependency injection)! In other words,
 
-### :man: `User` は、:information_desk_person: `FatnessCheckerDi` に対して、 :older_man: `BmiMaster`  を注入したのです！（意味深）
-
+### :man: `User` injected:older_man:` BmiMaster` against:information_desk_person: `FatnessCheckerDi`! 
