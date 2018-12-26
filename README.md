@@ -19,7 +19,7 @@ After several hours.
 
 :person_frowning: Certainly. Please wait a moment. We will calculate your BMI with our latest type robot.
 
-:robot: Now Calculating...  70 kg divided by 1.70 m equals 41.18, so the BMI is ** 41.18 **!
+:robot: Now Calculating...  70 kg divided by 1.70 m equals 41.18, so the BMI is **41.18**!
 
 :person_frowning: OK, The BMI is over 40, so you are  **Obese (Level 4)** in Japan.
 
@@ -43,9 +43,9 @@ A few days later
 
 :man: Wait! I want this person to calculate the BMI.
 
-:older_man: Let me see, 70 kg divided by the square of 1.70 m equals 24.22, so his BMI is ** 24.22 **.
+:older_man: Let me see, 70 kg divided by the square of 1.70 m equals 24.22, so his BMI is **24.22**.
 
-:information_desk_person: Certainly. The BMI is over 18.5 and less than 25, so you are **Normal Weight ** in Japan.
+:information_desk_person: Certainly. The BMI is over 18.5 and less than 25, so you are **Normal Weight** in Japan.
 
 :man: I did it!
 
@@ -79,6 +79,6 @@ In other words, it is a problem that :person_frowning: `FatnessChecker` depended
 
 This will enable that  the judgment result of:information_desk_person: `FatnessCheckerDi` will depend on a reliable :older_man:` BmiMaster`.
 
-This is ** DI ** (dependency injection)! In other words,
+This is **DI** (dependency injection)! In other words,
 
 ### :man: `User` injected:older_man:` BmiMaster` against:information_desk_person: `FatnessCheckerDi`! 
